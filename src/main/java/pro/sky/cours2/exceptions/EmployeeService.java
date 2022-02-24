@@ -18,7 +18,7 @@ public class EmployeeService {
     public Employee addEmployee(String lastName, String firstName) {
         Employee newEmployee = new Employee(lastName, firstName);
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(lastName) && employees[i].getFirstName().equals(firstName)) {
+            if (employees[i] != null && employees[i].equals(newEmployee)) {
                 throw new EmployeeAlreadyAddedException("Employee already added");
             }
         }
@@ -32,8 +32,9 @@ public class EmployeeService {
     }
 
     public Employee removeEmployee(String lastName, String firstName) {
+        Employee newEmployee = new Employee(lastName, firstName);
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(lastName) && employees[i].getFirstName().equals(firstName)) {
+            if (employees[i] != null && employees[i].equals(newEmployee)) {
                 employees[i] = null;
                 return null;
             }
@@ -42,8 +43,9 @@ public class EmployeeService {
     }
 
     public Employee findEmployee(String lastName, String firstName) {
+        Employee newEmployee = new Employee(lastName, firstName);
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(lastName) && employees[i].getFirstName().equals(firstName)) {
+            if (employees[i] != null && employees[i].equals(newEmployee)) {
                 return employees[i];
             }
         }
